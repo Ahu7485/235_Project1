@@ -25,7 +25,7 @@ all: run
 # To create the executable file run we need the object files
 # RunCompetition.o, Competition.o, Hare.o, Tortoise.o, and Road.o:
 run:  RunCompetition.o Competition.o Animal.o Hare.o Tortoise.o Duck.o Elephant.o Road.o
-	$(CC) -o run RunCompetition.o Competition.o Animal.o Hare.o Tortoise.o Duck.o Elephant.o Road.o
+	$(CC) -o run RunCompetition.o Competition.o Animal.o Duck.o Elephant.o Road.o
 
 # To create the object file RunCompetition.o, we need the source
 # files RunCompetition.cpp, Competition.h 

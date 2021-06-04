@@ -18,21 +18,22 @@ void Competition::addRoad(int length){
 
 void Competition::start() {
     //setup race
-    std::vector <Animal*> winner;
-    int lastblock = rd->getLastBlock();
+    std::vector <Animal* > winner;
     bool race_continue = true;
     //start race
     while(race_continue){
-        for (Animal* i: players){
-            (*rd).mark((*i).getPosition(), (*i).getMark());
-            if((*i).getPosition() > lastblock){
+        for(Animal* i: players){
+
+            rd->mark(i->getPosition(), i->getMark());
+
+            if(i->getPosition() > rd->getLastBlock()){
                 race_continue = false;
                 winner.push_back(i);
             }
-            (*i).move();
+            i->move();
         }
     }
     for( Animal* i: winner){
-        (*i).showExcitement();
+        i->showExcitement();
     }
 }

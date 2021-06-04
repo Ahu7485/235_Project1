@@ -1,8 +1,8 @@
 #include "Animal.hpp"
 
 void Animal::setPatternAndLength(int *pattern, int size){
-    this->pattern = pattern;
-    this->patternLength = size;
+    (*this).pattern = pattern;
+    patternLength = size;
 }
 
 void Animal::setName(std::string name){
@@ -13,10 +13,6 @@ void Animal::setMark(char mark){
 }
 void Animal::setPosition(int position){
     this->position = position;
-}
-void Animal::setPatternAndLength(int* pattern, int size){
-    (*this).pattern  = pattern;
-    this->patternLength = size;
 }
 int Animal::getPatternLength() const{
     return patternLength;
@@ -31,7 +27,9 @@ char Animal::getMark() const{
     return mark;
 }
 void Animal::move(){
-    position += pattern[std::rand() % patternLength];
+    int index = rand() % patternLength;
+    int stepsToMove = pattern[index];
+    position += stepsToMove;
 }
 void Animal::showExcitement() const{
     std::cout << "We have a Winner!!" << std::endl;
